@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <svg>
+    {% for function in functions %}
+      <rect width="200"
+	    height="100"
+	    x="{{ loop.index*230 }}"
+	    y="300"
+	    rx=20
+	    ry=20
+	    fill="{{ colors[function.name] }}"
+	    stroke="gray"
+	    stroke-width="4"/>
+    {% endfor %}
+    </svg>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>

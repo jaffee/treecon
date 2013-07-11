@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="row-fluid">
+    {% for function in functions %}
+      <div class="span1 offset1">
+      <a class="btn btn-large btn-primary" href="{{ function.name }}"> {{ function.name }} </a>
+      </div>
+    {% endfor %}
+    </div><!-- end row -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>

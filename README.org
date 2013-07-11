@@ -1,2 +1,23 @@
 * treecon
-** blah
+** usage
+#+BEGIN_SRC bash
+# download bootstrap css stuff and unpack it to src/treecon/templates
+cd src/treecon/templates
+wget http://twitter.github.io/bootstrap/assets/bootstrap.zip
+unzip bootstrap.zip
+mv bootstrap/* .
+rmdir bootstrap
+rm bootstrap.zip
+
+# go back to top level
+cd ../../..
+# install
+sudo python setup.py install
+
+
+# start server
+treecon
+#+END_SRC
+
+** switch between svg and bootstrap stuff
+Just change which html file gets rendered in views.py functions.html or functions-svg.html
