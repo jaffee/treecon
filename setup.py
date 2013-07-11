@@ -6,7 +6,7 @@ setup(
     author='Matthew Jaffee',
     description="Interface for display and navigation of tree-like data",
     packages=['treecon'],
-    package_dir={'treecon': 'src/treecon'},
+    package_dir={'treecon': 'treecon'},
     install_requires=[
         'Flask'
     ],
