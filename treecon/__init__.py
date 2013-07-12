@@ -1,4 +1,4 @@
-import views
+from flask import Flask
+app = Flask(__name__)
 
-if __name__ == "__main__":
-    views.app.run()
+import treecon.views

@@ -1,4 +1,4 @@
-root_colors = {
+ROOT_COLORS = {
     "Know": "blue",
     "Prevent": "purple",
     "Detect": "yellow",

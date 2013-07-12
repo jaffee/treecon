@@ -1,8 +1,8 @@
-from flask import Flask, render_template
-app = Flask(__name__)
+from flask import render_template
+from treecon import app
+from treecon import db
 
-import db
-from config import root_colors
+app.config.from_pyfile('config.py')
 
 
 @app.route("/cybersec/")
@@ -31,7 +31,6 @@ def render_path(thepath):
 
     return render_template("functions-text.html",
                            tiers=tiers,
-                           colors=root_colors,
                            thepath=thepath,
                            pathlen=len(thepath),
                            selected=selected)
