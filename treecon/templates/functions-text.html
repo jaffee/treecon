@@ -10,6 +10,7 @@
   <body>
     {% set path = "/cybersec/" %}
     <div class="row-fluid">
+    {% set el = "" %}
     {% for tier in tiers %}
       {% if not loop.index-1 == pathlen %}
         {% set el = thepath[loop.index-1] %}

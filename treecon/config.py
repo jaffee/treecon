@@ -5,3 +5,4 @@ ROOT_COLORS = {
     "Respond": "red",
     "Recover": "green"
 }
+TOP_LEVEL_TYPE = "function"
