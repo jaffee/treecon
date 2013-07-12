@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-from testdata import data, things
+import db
 from config import root_colors
 
 
@@ -9,19 +9,37 @@ from config import root_colors
 def root():
     # get root items
     # render them with template and return
-    pass
+    return "root"
 
 @app.route("/cybersec/<path:thepath>")
-def level1(thepath):
+def render_path(thepath):
     thepath = thepath.split('/')
+    if not thepath[-1]:
+        thepath.pop()
     # functions = get things where type==function
-    function_things = [ x for x in things if x['type']=="function" ]
-    function_things = dict((x["id"], x) for x in function_things)
-    func_ids = function_things.keys()
-    func_data = [ x for x in data if x['id'] in func_ids]
-    for d in func_data:
-        d.update(function_things[d["id"]])
+    function_things = db.extract_items("type", "function")
 
-    return render_template("functions-svg.html", functions=func_data, colors=root_colors)
-    # render
-    pass
+    tiers = [function_things]
+
+    for element in thepath:
+        selected = extract("name", element, tiers[-1])
+        if not selected:
+            return "Invalid Path", 404
+        if "children" in selected:
+            children = db.select(lambda db_obj: db_obj["id"] in selected["children"])
+            tiers.append(children)
+
+    return render_template("functions-text.html",
+                           tiers=tiers,
+                           colors=root_colors,
+                           thepath=thepath,
+                           pathlen=len(thepath),
+                           selected=selected)
+
+
+def extract(key, value, alist):
+    '''Get an item from alist that has the specified key and value'''
+    for el in alist:
+        if el[key]==value:
+            return el
+    return None
