@@ -8,8 +8,9 @@
 	    "required": true
 	},
 	"dateCreated": {
-	    "type": "string",
-	    "format": "date-time",
+	    "type": "number",
+	    "description": "Unix timestamp",
+	    "minimum": 0,
 	    "required": true
 	},
 	"id": {
