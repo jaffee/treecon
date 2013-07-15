@@ -1,3 +1,5 @@
+import json
+
 ROOT_COLORS = {
     "Know": "blue",
     "Prevent": "purple",
@@ -6,3 +8,6 @@ ROOT_COLORS = {
     "Recover": "green"
 }
 TOP_LEVEL_TYPE = "function"
+DBNAME = "cybersec"
+
+THING_SCHEMA = json.loads(open('treecon/thing-schema.json').read())
