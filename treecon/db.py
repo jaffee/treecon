@@ -10,7 +10,7 @@ def validate_add_defaults(data, schema):
     validictory.validate(data, schema)
 
 
-thing_c = pymongo.Connection('localhost')[app.config['DBNAME']]['everything']
+thing_c = pymongo.Connection('localhost')[app.config['DBNAME']][app.config['COLLNAME']]
 
 def get_item(the_id):
     return thing_c.find_one({'id': the_id})

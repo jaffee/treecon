@@ -15,7 +15,7 @@
 	},
 	"type": {
 	    "type": "string",
-	    "enum": ["function", "category", "subcategory", "reference", "root"],
+	    "enum": ["Function", "Category", "Subcategory", "Reference"],
 	    "required": true
 	},
 	"children": {
